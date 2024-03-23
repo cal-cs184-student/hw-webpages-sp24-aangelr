@@ -193,12 +193,12 @@
 				</tr>
 				<tr align="center">
 					<td>
-						<img src="images/your_file.png" align="middle" width="400px"/>
-						<figcaption>example3.dae</figcaption>
+						<img src="images/blob.png" align="middle" width="400px"/>
+						<figcaption>blob.dae</figcaption>
 					</td>
 					<td>
-						<img src="images/your_file.png" align="middle" width="400px"/>
-						<figcaption>example4.dae</figcaption>
+						<img src="images/bench.png" align="middle" width="400px"/>
+						<figcaption>bench.dae</figcaption>
 					</td>
 				</tr>
 			</table>
@@ -209,7 +209,11 @@
 			Compare rendering times on a few scenes with moderately complex geometries with and without BVH acceleration. Present your results in a one-paragraph analysis.
 		</h3>
 		<p>
-			YOUR RESPONSE GOES HERE
+			Using a BVH massively improves runtime. Rendering maxplanck.dae took 20 seconds without BVH ad 0.2 seconds with BVH acceleration.
+			cow.dae took 64.073s without BVH acceleration. With BVH acceleration it only took 0.1438s. Since we are checking less rays for
+			intersections, we do significantly less computation. BVH allows us to restrict our intersection computation to more concentrated areas.
+			It is also cheaper to check for intersection in a bounding box than thousands of spheres or triangles on a scene object.
+			Overall, BVH acceleration significantly reduced runtime for intersections.
 		</p>
 		<br>
 
