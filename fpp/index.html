@@ -1,7 +1,89 @@
-<html>
-	<head>
-	</head>
-	<body>
-		Final Project Proposal Here
-	</body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<style>
+		body {
+			padding: 100px;
+			width: 1000px;
+			margin: auto;
+			text-align: left;
+			font-weight: 300;
+			font-family: 'Open Sans', sans-serif;
+			color: #121212;
+		}
+		h1, h2, h3, h4 {
+			font-family: 'Source Sans Pro', sans-serif;
+		}
+	</style>
+	<title>CS 184 Final Project</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro" rel="stylesheet">
+</head>
+
+
+<body>
+
+<h1 align="middle">CS 184/284A: Computer Graphics and Imaging, Spring 2024</h1>
+<h1 align="middle">Final Project Proposal</h1>
+<h2 align="middle">Angel Rodriguez, Luis Navarrete, Razvan Turcu, Ziyan Yu</h2>
+<br>
+
+<div>
+	<h2 align="middle">Overview</h2>
+	<p>In our project, we convert an SVG file containing 2D characters into 3D models. We extract the structure of the characters using Bezier curves
+		and then triangulate them to create mesh representations of the characters. The mesh triangles are then extracted into 3D dimensions using
+		external libraries.
+	</p>
+	<!--<p>Here is an example 2x2 gridlike structure using an HTML table. Each <b>tr</b> is a row and each <b>td</b> is a column in that row. You might find this useful for framing and showing your result images in an organized fashion.</p>-->
+	<div align="middle">
+		<table style="width=100%">
+			<tr>
+				<td>
+					<img src="images/Q.jpg" align="middle" width="500px"/>
+					<figcaption align="middle"> Example of 3D rendered text
+					</figcaption>
+				</td>
+
+			</tr>
+		</table>
+	</div>
+
+	<h2 align="middle">Problem Description</h2>
+	<p>
+		Our project aims to enhance digital typography by leveraging GPU acceleration rendering of high-quality 3D text from 2D fonts created
+		through Bezier curves. There are 2 major challenges that our project will tackle:
+		<ol>
+			<li>Efficiently parsing and triangulating Bezier curves on the GPU</li>
+			<li>Transforming the 2D text into a 3D model without losing details or creating artifacts</li>
+		</ol>
+	</p>
+
+	<h2 align="middle">Goals and Deliverables</h2>
+	<p>
+		Our final deliverable will be a 3D rendering of characters with path tracing for realistic shadows.
+		Our 3D rendering of text will either be laying down on the ground or on a wall in which the user can interact
+		with the environment like in homework 4 (zoom, change perspective). We aim to explore the effectiveness and
+		efficiency of GPU-based rendering techniques for converting 2D text into 3D models. Specifically, we're
+		investigating whether leveraging GPU acceleration can significantly improve the rendering speed and quality
+		of 3D text compared to traditional CPU-based methods. This includes assessing the impact on realism and visual
+		appeal when advanced rendering techniques like texturing and ray tracing are applied to 3D text models
+		generated from Bezier curves. We are trying to discover if GPU rendered text from 2D to 3D is better
+		(has less artifacts, is faster) than the CPU version of it. We believe that at a minimum, we must deliver
+		generation of the 2D text using Bezier curves and the GPU and make it 3D. Our team would ideally like to
+		have 2 different implementations of 2D to 3D text rendering, one that utilizes CPU and the other which
+		utilizes GPU. Additionally our team would like to apply properties into the 3D rendering such as texture
+		mapping or pathtracing.
+
+	</p>
+
+	<h2 align="middle">Schedule</h2>
+
+	<h2 align="middle">Resources</h2>
+	<ul>
+		<li><a href="https://developer.nvidia.com/gpugems/gpugems3/part-iv-image-effects/chapter-25-rendering-vector-art-gpu">Rendering Vector Art on the GPU</a></li>
+		<li><a href="https://stackoverflow.com/a/36065835" rel="stylesheet">How to draw text using only OpenGL methods?</a></li>
+		<li><a href="https://openaccess.thecvf.com/content/ICCV2023/papers/Dong_AG3D_Learning_to_Generate_3D_Avatars_from_2D_Image_Collections_ICCV_2023_paper.pdf#:~:text=URL%3A%20https%3A%2F%2Fopenaccess.thecvf.com%2Fcontent%2FICCV2023%2Fpapers%2FDong_AG3D_Learning_to_Generate_3D_Avatars_from_2D_Image_Collections_ICCV_2023_paper.pdf%0AVisible%3A%200%25%20" rel="stylesheet">AG3D: Learning to Generate 3D Avatars from 2D Image Collections</a></li>
+	</ul>
+</div>
+</body>
 </html>
