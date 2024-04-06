@@ -227,7 +227,10 @@
 			Walk through both implementations of the direct lighting function.
 		</h3>
 		<p>
-			YOUR RESPONSE GOES HERE
+			For diffuse BSDF, every incoming and outgoing angle results in the same reflectance in any direction, so we return a constant
+			R/Pi, where R is the reflectance of the surface. We simply used the hemisphere sampler to determine the incident light direction.
+			For light coming directly from the light source, we simply return the emission of the light source. For rays that have a single
+			bounce, we sample a random direction in the hemisphere surrounding the hit point and see if that ray intersects a light source.
 		</p>
 
 		<h3>
