@@ -1,7 +1,188 @@
-<html>
-	<head>
-	</head>
-	<body>
-		Homework 4 index.html here
-	</body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<style>
+  body {
+    padding: 100px;
+    width: 1000px;
+    margin: auto;
+    text-align: left;
+    font-weight: 300;
+    font-family: 'Open Sans', sans-serif;
+    color: #121212;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+</style>
+<title>CS 184 Mesh Editor</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro" rel="stylesheet">
+</head>
+
+
+<body>
+
+<h1 align="middle">CS 184: Computer Graphics and Imaging, Spring 2017</h1>
+<h1 align="middle">Project 4: Cloth Simulator</h1>
+<h2 align="middle">Angel Rodriguez & Luis Navarrete, CS184-Spring 2024</h2>
+
+<br><br>
+
+<div>
+
+<h2 align="middle">Overview</h2>
+<p>Give a high-level overview of what you implemented in this project. Think about what you've built as a whole. Share your thoughts on what interesting things you've learned from completing the project.</p>
+<p>
+    In this project, we constructed a realistic cloth simulation using the point mass and spring structure. All of
+    our point masses were connected to neighboring point masses with springs of the correct constraint types. We applied external forces
+    to simulate gravity and pinned point masses. For all objects in the scene, we also checked for collision with that object and every
+    point mass and correctly placed the point mass on the outside of the object without letting it clip through. In order to handle self-collision,
+    we implemented a spatial map so that we apply corrective forces to a point mass relative to other point masses within the same spatial region. This
+    ensured that point masses would not clip past each other.
+</p>
+<h2 align="middle">Part I: Masses and springs</h2>
+
+    <div align="middle">
+        <table style="width:100%">
+            <tr align="center">
+                <td>
+                    <img src="images/p1-normal.png" align="middle" width="400px"/>
+                    <figcaption>Normal Shot</figcaption>
+                </td>
+                <td>
+                    <img src="images/p1-no-shear.png" align="middle" width="400px"/>
+                    <figcaption>No shear constraint</figcaption>
+                </td>
+            </tr>
+            <br>
+            <tr align="center">
+                <td>
+                    <img src="images/p1-shear.png" align="middle" width="400px"/>
+                    <figcaption>Shear constraint</figcaption>
+                </td>
+                <td>
+                    <img src="images/p1-all.png" align="middle" width="400px"/>
+                    <figcaption>All constraint</figcaption>
+                </td>
+            </tr>
+            <br>
+        </table>
+    </div>
+
+
+    <h2 align="middle">Part 2: Simulation via numerical integration</h2>
+
+    <div align="middle">
+        <table style="width:100%">
+            <tr align="center">
+                <td>
+                    <img src="images/p2.png" align="middle" width="400px"/>
+                    <figcaption>Simulation of clothing</figcaption>
+                </td>
+
+            </tr>
+            <br>
+        </table>
+    </div>
+
+
+
+    <h2 align="middle">Part 3: Handling Collision with other Objects</h2>
+
+    <div align="middle">
+        <table style="width:100%">
+            <tr align="center">
+                <td>
+                    <img src="images/p3-500.png" align="middle" width="400px"/>
+                    <figcaption>500 ks</figcaption>
+                </td>
+                <td>
+                    <img src="images/p3-5000.png" align="middle" width="400px"/>
+                    <figcaption>5000 ks</figcaption>
+                </td>
+            </tr>
+            <br>
+            <tr align="center">
+                <td>
+                    <img src="images/p3-50000.png" align="middle" width="400px"/>
+                    <figcaption>50000 ks</figcaption>
+                </td>
+            </tr>
+            <br>
+
+        </table>
+    </div>
+
+
+    <h2 align="middle">Part 4: Handling Self-Collisions</h2>
+
+    <div align="middle">
+        <table style="width:100%">
+            <tr align="center">
+                <td>
+                    <img src="images/p4-1.png" align="middle" width="400px"/>
+                    <figcaption>Initial position</figcaption>
+                </td>
+                <td>
+                    <img src="images/p4-2.png" align="middle" width="400px"/>
+                    <figcaption>Half way through collision</figcaption>
+                </td>
+                <td>
+                    <img src="images/p4-3.png" align="middle" width="400px"/>
+                    <figcaption>Near end of collision</figcaption>
+                </td>
+            </tr>
+            <br>
+            <tr align="center">
+                <td>
+                    <img src="images/p4-12.png" align="middle" width="400px"/>
+                    <figcaption>Halfway through collision</figcaption>
+                </td>
+                <td>
+                    <img src="images/p4-11.png" align="middle" width="400px"/>
+                    <figcaption>Near end of collision</figcaption>
+                </td>
+            </tr>
+            <br>
+        </table>
+    </div>
+
+
+    <h2 align="middle">Part 5: Shaders</h2>
+
+    <div align="middle">
+        <table style="width:100%">
+            <tr align="center">
+                <td>
+                    <img src="images/t6-1.png" align="middle" width="400px"/>
+                    <figcaption>Level 0</figcaption>
+                </td>
+                <td>
+                    <img src="images/t6-2.png" align="middle" width="400px"/>
+                    <figcaption>Level 1</figcaption>
+                </td>
+            </tr>
+            <br>
+            <tr align="center">
+                <td>
+                    <img src="images/t6-3.png" align="middle" width="400px"/>
+                    <figcaption>Level 2</figcaption>
+                </td>
+                <td>
+                    <img src="images/t6-4.png" align="middle" width="400px"/>
+                    <figcaption>Level 3</figcaption>
+                </td>
+            </tr>
+            <br>
+            <tr align="center">
+                <td>
+                    <img src="images/t6-5.png" align="middle" width="400px"/>
+                    <figcaption>Preprocessing with flips and splits</figcaption>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</body>
 </html>
