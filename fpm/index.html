@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<style>
+		body {
+			padding: 100px;
+			width: 1000px;
+			margin: auto;
+			text-align: left;
+			font-weight: 300;
+			font-family: 'Open Sans', sans-serif;
+			color: #121212;
+		}
+		h1, h2, h3, h4 {
+			font-family: 'Source Sans Pro', sans-serif;
+		}
+	</style>
+	<title>CS 184 Final Project</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro" rel="stylesheet">
+</head>
+
+
+<body>
+
+<h1 align="middle">CS 184/284A: Computer Graphics and Imaging, Spring 2024</h1>
+<h1 align="middle">Final Project Milestone</h1>
+<h2 align="middle">Angel Rodriguez, Luis Navarrete, Razvan Turcu, Ziyan Yu</h2>
+<br>
+
+<div>
+	<h2 align="middle">Progress</h2>
+	<p>
+		We have researched ways to build a fast rasterizer for rendering fonts. We decided to use Python as our programming language and freetype as the library to parse .ttf fonts. We are currently getting the coordinates of the Bezier control points necessary to build the rasterizer through freetype. Our next steps involve implementing a rasterization algorithm that can accurately convert the Bézier curve coordinates into pixel data on a raster image. We have researched previously implemented line drawing and anti-aliasing techniques for fast font rendering.
+	</p>
+
+	<h2 align="middle">Preliminary Results</h2>
+	<p>
+	<div align="middle">
+		<table style="width=100%">
+			<tr>
+				<td>
+					<img src="images/milestone_a.png" align="middle" width="250"/>
+					<figcaption align="middle"> Full Character
+					</figcaption>
+				</td>
+				<td>
+					<img src="images/milestone_a_control.png" align="middle" width="250"/>
+					<figcaption align="middle"> Control Points
+					</figcaption>
+				</td>
+			</tr>
+		</table>
+	</div>
+	</p>
+
+	<h2 align="middle">Reflection</h2>
+	<p>
+		We no longer think doing a 3D rendering of the fonts is reasonable anymore given the time we have and the amount of work it would take. Our goal moving forward is to build a rasterizer that is able to draw our characters to the frame buffer using the FreeType interface for the character information. We also want to do the rendering through the rasterizer since we are currently using matplotlib to verify that we are correctly parsing the control points.
+	</p>
+
+	<h2 align="middle">Updates to Work Plan</h2>
+	<p>
+	<ol>
+		<li>Build GPU Rasterizer using OpenGL</li>
+		<li>Use control points to draw Bezier curves in the frame buffer</li>
+		<li>Fill the letter based on the contour of the glyph</li>
+		<li>Anti-aliasing by tracing parallel lines along the x-axis (As shown below)</li>
+		<li>Performance optimizations</li>
+		<li>debugging, write up</li>
+	</ol>
+	<div align="middle">
+		<table style="width=100%">
+			<tr>
+				<td>
+					<img src="images/milestone_contour.png" align="middle" width="500"/>
+					<figcaption align="middle">
+						<a href="https://github.com/GreenLightning/gpu-font-rendering/tree/master?tab=readme-ov-file">Source</a>
+					</figcaption>
+				</td>
+			</tr>
+		</table>
+	</div>
+	</p>
+	<h2 align="middle">Video and Presentation Slides</h2>
+	<ul>
+		<li><a href="https://docs.google.com/presentation/d/1OBT-hilUf4lmUk1_lxPyKxUymED49A4kowJ0jScBYAk/edit#slide=id.g26f789973f4_0_127">Presentation Slides</a></li>
+		<li><a href="https://youtu.be/RbJR-cyEy8M" rel="stylesheet">Milestone Video</a></li>
+	</ul>
+</div>
+</body>
+</html>
